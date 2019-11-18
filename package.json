@@ -2,16 +2,35 @@
   "name": "aladdin-electron",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
+  "main": "src/start.js",
   "dependencies": {
+    "electron": "^7.1.1",
+    "electron-is-dev": "^1.1.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "electron": "electron .",
+    "start": "cross-env BROWSER=none npm run react-start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "build": {
+    "appId": "aladdin.electron.0.1",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "category": "photo",
+      "iconUrl": "path-to-icon.png"
+    },
+    "mac": {
+      "category": "photo",
+      "iconUrl": "path-to-icon.png"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,5 +46,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "electron-builder": "^21.2.0",
+    "electron-reload": "^1.5.0",
+    "nodemon": "^1.19.4"
   }
 }
